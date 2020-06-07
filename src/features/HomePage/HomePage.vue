@@ -53,17 +53,23 @@
       <p class="sample-title">Rendering child component with props</p>
       <nested-component parent="HomePage" />
     </div>
+    <div class="sample">
+      <p class="sample-title">Child to parent communication using events</p>
+      <child-component v-on:new-message="doProcessing" />
+    </div>
   </div>
 </template>
 
 <script>
 import NestedComponent from "./components/NestedComponent";
+import ChildComponent from "./components/ChildComponent";
 export default {
   // Name of the component
   name: "HomePage",
   // child components referenced in this component
   components: {
-    NestedComponent
+    NestedComponent,
+    ChildComponent
   },
   // local state of the component
   data: function() {
@@ -91,6 +97,9 @@ export default {
     addTodo() {
       this.todos.push(this.newTodo);
       this.newTodo = "";
+    },
+    doProcessing() {
+      window.alert("Message received from child.");
     }
   },
   // lifecycle hooks of the component
@@ -104,6 +113,7 @@ export default {
 .home {
   text-align: center;
   padding: 20px;
+  margin-bottom: 20px;
 }
 .sample {
   min-height: 200px;
