@@ -1,4 +1,6 @@
-# vue-crud-app
+# vue-fundamentals-app
+
+### A basic VueJS application that covers every single Vuejs feature along with Vuex and routing. A good starter kit to see all things VueJS.
 
 ## Project setup
 ```
